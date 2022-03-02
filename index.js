@@ -1,6 +1,6 @@
 let gpt3Options = {
   // "engine": "text-davinci-001",
-  "prompt": "Are you a cool guy?",
+  "prompt": "this is the text that gets sent",
   "temperature": 0.7,
   "max_tokens": 64,
   "top_p": 1,
@@ -19,7 +19,7 @@ function main () {
       postData('https://api.openai.com/v1/engines/text-davinci-001/completions', gpt3Options)
       .then(data => {
         logseq.Editor.insertBlock(uuid, data.choices[0].text, { before: false, sibling: true })
-       console.log(data); // JSON data parsed by `data.json()` call
+       console.log(data);
       });
 
     }
@@ -37,7 +37,7 @@ async function postData(url = '', data = {}) {
     credentials: 'same-origin', // include, *same-origin, omit
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer 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'
+      'Authorization': 'Bearer PASTE-YOUR-APIKEY-HERE'
       // 'Content-Type': 'application/x-www-form-urlencoded',
     },
     redirect: 'follow', // manual, *follow, error
@@ -47,8 +47,6 @@ async function postData(url = '', data = {}) {
   });
   return response.json(); // parses JSON response into native JavaScript objects
 }
-
-
 
 // bootstrap
 logseq.ready(main).catch(console.error)
