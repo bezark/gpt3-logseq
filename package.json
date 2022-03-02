@@ -1,0 +1,11 @@
+{
+  "name": "GPT3",
+  "version": "0.0.1",
+  "description": "Generate GPT-3 Responses to Block Trees",
+  "main": "index.html",
+  "author": "JOhn",
+  "license": "MIT",
+  "logseq": {
+    "id": "_r5fbt3wdc"
+  }
+}
