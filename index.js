@@ -13,13 +13,11 @@ function main () {
     'GPT-3',
     async () => {
       const { content, uuid } = await logseq.Editor.getCurrentBlock({includeChildren: true})
-      console.log(content)
       gpt3Options.prompt = content
 
       postData('https://api.openai.com/v1/engines/text-davinci-001/completions', gpt3Options)
       .then(data => {
         logseq.Editor.insertBlock(uuid, data.choices[0].text, { before: false, sibling: true })
-       console.log(data);
       });
 
     }
